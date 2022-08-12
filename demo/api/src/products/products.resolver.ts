@@ -56,7 +56,7 @@ export class ProductsResolver {
         return entity;
     }
 
-    @AllowForRole("Admin")
+    // @AllowForRole("Admin")
     @Mutation(() => Boolean)
     async deleteProduct(@Args("id", { type: () => ID }) id: string): Promise<boolean> {
         const product = await this.repository.findOneOrFail(id);
