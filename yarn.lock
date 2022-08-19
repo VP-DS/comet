@@ -3229,6 +3229,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.18.6":
+  version: 7.18.9
+  resolution: "@babel/runtime@npm:7.18.9"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 36dd736baba7164e82b3cc9d43e081f0cb2d05ff867ad39cac515d99546cee75b7f782018b02a3dcf5f2ef3d27f319faa68965fdfec49d4912c60c6002353a2e
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.12.7, @babel/template@npm:^7.16.7, @babel/template@npm:^7.3.3, @babel/template@npm:^7.8.6":
   version: 7.16.7
   resolution: "@babel/template@npm:7.16.7"
@@ -6964,6 +6973,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mui/x-data-grid-pro@npm:^5.15.0":
+  version: 5.15.2
+  resolution: "@mui/x-data-grid-pro@npm:5.15.2"
+  dependencies:
+    "@babel/runtime": ^7.18.6
+    "@mui/utils": ^5.4.1
+    "@mui/x-data-grid": 5.15.2
+    "@mui/x-license-pro": 5.15.0
+    "@types/format-util": ^1.0.2
+    clsx: ^1.2.1
+    prop-types: ^15.8.1
+    reselect: ^4.1.6
+  peerDependencies:
+    "@mui/material": ^5.4.1
+    "@mui/system": ^5.4.1
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
+  checksum: 0f20af7b10729b114ac5262ca0d3f7847123baec15d36a997117a9e6905f72ff441d149613d76ff82d25728baa1adce52310dfdbec2a096edb0f6fcb76b694c5
+  languageName: node
+  linkType: hard
+
+"@mui/x-data-grid@npm:5.15.2":
+  version: 5.15.2
+  resolution: "@mui/x-data-grid@npm:5.15.2"
+  dependencies:
+    "@babel/runtime": ^7.18.6
+    "@mui/utils": ^5.4.1
+    clsx: ^1.2.1
+    prop-types: ^15.8.1
+    reselect: ^4.1.6
+  peerDependencies:
+    "@mui/material": ^5.4.1
+    "@mui/system": ^5.4.1
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
+  checksum: 5f446d13996cc61fe2a24f07130a380afa26beaffcefef924d452d4210a528147ea6859c9e5375b746a40bbd12356ec5561209e3ed3048a6a478f86f76cbdd17
+  languageName: node
+  linkType: hard
+
 "@mui/x-date-pickers@npm:5.0.0-alpha.1":
   version: 5.0.0-alpha.1
   resolution: "@mui/x-date-pickers@npm:5.0.0-alpha.1"
@@ -6996,6 +7044,23 @@ __metadata:
     moment:
       optional: true
   checksum: 83d69f199a2ca8b4b3826fe2c89ab23030cff2beff6dc35297e3a25e7844d1e83745d438c527af9439ee78b0c313ca8f30229c5df361a6f01695dee1a525faf0
+  languageName: node
+  linkType: hard
+
+"@mui/x-license-pro@npm:5.15.0":
+  version: 5.15.0
+  resolution: "@mui/x-license-pro@npm:5.15.0"
+  dependencies:
+    "@babel/runtime": ^7.18.6
+    "@mui/utils": ^5.4.1
+    esm: ^3.2.25
+    yargs: ^17.5.1
+  peerDependencies:
+    react: ^17.0.2 || ^18.0.0
+  bin:
+    licensedecode: bin/license-decode-script.js
+    licensegen: bin/license-gen-script.js
+  checksum: 079571ee820fa6dc3620c0d35b305c65eaf58424eb48ee57d46c7c532e9f541c104ca5fd0f899c9298fb6847830fce69664c5a9dbcd3c63169429830a4805005
   languageName: node
   linkType: hard
 
@@ -9447,6 +9512,13 @@ __metadata:
   dependencies:
     final-form: 4.x.x
   checksum: cbb56f511c014e885cce3988c8fdafe5922a2170fe12add930b5a79e732e079c8810f0747758fb8028b36075505fb0be585b870391d606628f5bbf942fb71340
+  languageName: node
+  linkType: hard
+
+"@types/format-util@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@types/format-util@npm:1.0.2"
+  checksum: 59b5d0f7d83cd64cd4ef57485db1f62d232c48e1d30b04f78386de974446ed57d3415134fcdaa2e8052baf0926b89148a34f6575ab21245fea77802a9f4de0a3
   languageName: node
   linkType: hard
 
@@ -14180,6 +14252,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "clsx@npm:1.2.1"
+  checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
+  languageName: node
+  linkType: hard
+
 "cmd-shim@npm:^4.1.0":
   version: 4.1.0
   resolution: "cmd-shim@npm:4.1.0"
@@ -14416,6 +14495,7 @@ __metadata:
     "@mui/material": ^5.0.0
     "@mui/styles": ^5.0.0
     "@mui/system": ^5.0.0
+    "@mui/x-data-grid-pro": ^5.15.0
     "@ory/hydra-client": ^1.0.0
     "@types/draft-js": ^0.10.0
     "@types/final-form-set-field-touched": ^1.0.0
@@ -14475,6 +14555,7 @@ __metadata:
     pascal-case: ^3.0.0
     prettier: ^2.0.0
     prop-types: ^15.7.2
+    query-string: ^7.1.1
     react: ^17.0.2
     react-app-polyfill: ^1.0.0
     react-copy-to-clipboard: ^5.0.0
@@ -28009,7 +28090,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"query-string@npm:^7.0.0":
+"query-string@npm:^7.0.0, query-string@npm:^7.1.1":
   version: 7.1.1
   resolution: "query-string@npm:7.1.1"
   dependencies:
@@ -29355,6 +29436,13 @@ __metadata:
   version: 1.0.0
   resolution: "requires-port@npm:1.0.0"
   checksum: eee0e303adffb69be55d1a214e415cf42b7441ae858c76dfc5353148644f6fd6e698926fc4643f510d5c126d12a705e7c8ed7e38061113bdf37547ab356797ff
+  languageName: node
+  linkType: hard
+
+"reselect@npm:^4.1.6":
+  version: 4.1.6
+  resolution: "reselect@npm:4.1.6"
+  checksum: 3ea1058422904063ec93c8f4693fe33dcb2178bbf417ace8db5b2c797a5875cf357d9308d11ed3942ee22507dd34ecfbf1f3a21340a4f31c206cab1d36ceef31
   languageName: node
   linkType: hard
 
@@ -34520,7 +34608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0, yargs@npm:^17.0.1":
+"yargs@npm:^17.0.0, yargs@npm:^17.0.1, yargs@npm:^17.5.1":
   version: 17.5.1
   resolution: "yargs@npm:17.5.1"
   dependencies:
