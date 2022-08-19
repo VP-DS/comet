@@ -63,8 +63,8 @@ export class ProductsService {
                         if (filterProperty.lowerThan !== undefined) {
                             acc[filterPropertyName].$lt = filterProperty.lowerThan;
                         }
-                        if (filterProperty.geraterThan !== undefined) {
-                            acc[filterPropertyName].$gt = filterProperty.geraterThan;
+                        if (filterProperty.greaterThan !== undefined) {
+                            acc[filterPropertyName].$gt = filterProperty.greaterThan;
                         }
                         if (filterProperty.lowerThanEqual !== undefined) {
                             acc[filterPropertyName].$lte = filterProperty.lowerThanEqual;

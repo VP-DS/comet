@@ -345,7 +345,7 @@ input StringFilter {
 input NumberFilter {
   equal: Float
   lowerThan: Float
-  geraterThan: Float
+  greaterThan: Float
   lowerThanEqual: Float
   greaterThanEqual: Float
   notEqual: Float
