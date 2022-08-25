@@ -100,7 +100,7 @@ export function SaveStateSaveButton({ handleSaveClick, hasChanges, saving, saveE
     };
 
     return (
-        <SplitButton localStorageKey="SaveStateSaveButton" disabled={!hasChanges}>
+        <SplitButton localStorageKey="SaveSplitButton" disabled={!hasChanges}>
             <SaveButton onClick={() => handleSaveClick(true)} {...saveButtonProps}>
                 <FormattedMessage id="comet.generic.save" defaultMessage="Save" />
             </SaveButton>

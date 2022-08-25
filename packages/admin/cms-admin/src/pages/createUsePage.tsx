@@ -433,7 +433,7 @@ function PageSaveButton({ handleSavePage, hasChanges, saving, saveError }: PageS
     };
 
     return (
-        <SplitButton localStorageKey="EditPageSave" disabled={!hasChanges}>
+        <SplitButton localStorageKey="SaveSplitButton" disabled={!hasChanges}>
             <SaveButton onClick={handleSavePage} {...saveButtonProps}>
                 <FormattedMessage id="comet.generic.save" defaultMessage="Save" />
             </SaveButton>
