@@ -1,5 +1,9 @@
+import { BlockInputInterface, isBlockInputInterface } from "@comet/blocks-api";
 import { Field, InputType } from "@nestjs/graphql";
-import { IsNumber, IsString } from "class-validator";
+import { ImageBlock } from "@src/pages/blocks/ImageBlock";
+import { Transform } from "class-transformer";
+import { IsNumber, IsString, ValidateNested } from "class-validator";
+import { GraphQLJSONObject } from "graphql-type-json";
 
 @InputType()
 export class ProductInput {
@@ -14,6 +18,9 @@ export class ProductInput {
     @Field()
     @IsNumber()
     price: number;
-}
 
-// For different requirements with Update and Create, you can use Mapped Types (https://docs.nestjs.com/graphql/mapped-types)
+    @Field(() => GraphQLJSONObject)
+    @Transform((value) => (isBlockInputInterface(value) ? value : ImageBlock.blockInputFactory(value)), { toClassOnly: true })
+    @ValidateNested()
+    image: BlockInputInterface;
+}

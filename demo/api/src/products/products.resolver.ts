@@ -1,4 +1,4 @@
-import { AllowForRole, SortDirection } from "@comet/cms-api";
+import { AllowForRole, SortDirection, validateNotModified } from "@comet/cms-api";
 import { FindOptions } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { EntityRepository } from "@mikro-orm/postgresql";
@@ -20,7 +20,7 @@ export class ProductsResolver {
 
     @Mutation(() => Product)
     async addProduct(@Args("data", { type: () => ProductInput }) data: ProductInput): Promise<Product> {
-        const entity = this.repository.create(data);
+        const entity = this.repository.create({ ...data, image: data.image.transformToBlockData() });
         await this.repository.persistAndFlush(entity);
         return entity;
     }
@@ -49,9 +49,13 @@ export class ProductsResolver {
     async updateProduct(
         @Args("id", { type: () => ID }) id: string,
         @Args("data", { type: () => ProductInput }) data: ProductInput,
+        @Args("lastUpdatedAt", { type: () => Date, nullable: true }) lastUpdatedAt?: Date,
     ): Promise<Product> {
         const entity = await this.repository.findOneOrFail(id);
-        entity.assign(data);
+        if (entity != null && lastUpdatedAt) {
+            validateNotModified(entity, lastUpdatedAt);
+        }
+        entity.assign({ ...data, image: data.image.transformToBlockData() });
         await this.repository.persistAndFlush(entity);
         return entity;
     }

@@ -229,6 +229,7 @@ type Product {
   name: String!
   description: String!
   price: Float!
+  image: JSONObject
   createdAt: DateTime!
   updatedAt: DateTime
   sales: Int!
@@ -382,7 +383,7 @@ type Mutation {
   saveFooter(input: FooterInput!, lastUpdatedAt: DateTime): Footer!
   savePredefinedPage(id: ID!, input: PredefinedPageInput!, lastUpdatedAt: DateTime, attachedPageTreeNodeId: ID): PredefinedPage!
   addProduct(data: ProductInput!): Product!
-  updateProduct(id: ID!, data: ProductInput!): Product!
+  updateProduct(id: ID!, data: ProductInput!, lastUpdatedAt: DateTime): Product!
   deleteProduct(id: ID!): Boolean!
 }
 
@@ -498,4 +499,5 @@ input ProductInput {
   name: String!
   description: String!
   price: Float!
+  image: JSONObject!
 }
