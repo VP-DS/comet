@@ -17,14 +17,20 @@ import { ArrowLeft } from "@comet/admin-icons";
 import { EditPageLayout } from "@comet/cms-admin";
 import { IconButton } from "@mui/material";
 import { useContentScope } from "@src/common/ContentScopeProvider";
-import { GQLMutationcreateNewsArgs, GQLMutationupdateNewsArgs, GQLNewsInput, GQLNewsQuery, GQLNewsQueryVariables } from "@src/graphql.generated";
+import {
+    GQLMutationcreateNewsArgs,
+    GQLMutationupdateNewsArgs,
+    GQLNewsInput,
+    GQLNewsLegacyQuery,
+    GQLNewsLegacyQueryVariables,
+} from "@src/graphql.generated";
 import { FORM_ERROR } from "final-form";
 import arrayMutators from "final-form-arrays";
 import React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 const newsQuery = gql`
-    query News($id: ID!) {
+    query NewsLegacy($id: ID!) {
         news(id: $id) {
             id
             slug
@@ -47,7 +53,7 @@ const NewsForm: React.FC<NewsFormProps> = ({ newsId }) => {
     const client = useApolloClient();
     const { scope } = useContentScope();
 
-    const { data } = useQuery<GQLNewsQuery, GQLNewsQueryVariables>(newsQuery, {
+    const { data } = useQuery<GQLNewsLegacyQuery, GQLNewsLegacyQueryVariables>(newsQuery, {
         variables: { id: newsId },
         skip: newsId === "new",
     });
@@ -147,7 +153,7 @@ const NewsForm: React.FC<NewsFormProps> = ({ newsId }) => {
 export default NewsForm;
 
 const updateNewsMutation = gql`
-    mutation UpdateNews($id: ID!, $input: NewsInput!) {
+    mutation UpdateNewsLegacy($id: ID!, $input: NewsInput!) {
         updateNews(id: $id, input: $input) {
             id
             slug
@@ -157,7 +163,7 @@ const updateNewsMutation = gql`
 `;
 
 const createNewsMutation = gql`
-    mutation CreateNews($scope: NewsContentScopeInput!, $input: NewsInput!) {
+    mutation CreateNewsLegacy($scope: NewsContentScopeInput!, $input: NewsInput!) {
         createNews(scope: $scope, input: $input) {
             id
             slug

@@ -24,11 +24,11 @@ import {
     GQLCheckForChangesProductQueryVariables,
     GQLProductFormCreateProductMutation,
     GQLProductFormCreateProductMutationVariables,
-    GQLProductFormFragment,
+    GQLProductFormLegacyFragment,
     GQLProductFormUpdateProductMutation,
     GQLProductFormUpdateProductMutationVariables,
-    GQLProductQuery,
-    GQLProductQueryVariables,
+    GQLProductLegacyQuery,
+    GQLProductLegacyQueryVariables,
 } from "@src/graphql.generated";
 import { filter } from "graphql-anywhere";
 import isEqual from "lodash.isequal";
@@ -36,7 +36,6 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 
 import { createProductMutation, productCheckForChangesQuery, productFormFragment, productQuery, updateProductMutation } from "./ProductForm.gql";
-1;
 
 interface FormProps {
     id?: string;
@@ -46,7 +45,7 @@ const rootBlocks = {
     image: ImageBlock,
 };
 
-type FormState = Omit<GQLProductFormFragment, "price"> & {
+type FormState = Omit<GQLProductFormLegacyFragment, "price"> & {
     price: string;
     image: BlockState<typeof rootBlocks.image>;
 };
@@ -59,7 +58,7 @@ function ProductForm({ id }: FormProps): React.ReactElement {
     const stackSwitchApi = useStackSwitchApi();
     const createMutationResponseRef = React.useRef<GQLProductFormCreateProductMutation>();
 
-    const { data, error, loading, refetch } = useQuery<GQLProductQuery, GQLProductQueryVariables>(productQuery, {
+    const { data, error, loading, refetch } = useQuery<GQLProductLegacyQuery, GQLProductLegacyQueryVariables>(productQuery, {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         variables: { id: id! },
         skip: !id,
@@ -67,7 +66,7 @@ function ProductForm({ id }: FormProps): React.ReactElement {
 
     const initialValues: Partial<FormState> = data?.product
         ? {
-              ...filter<GQLProductFormFragment>(productFormFragment, data.product),
+              ...filter<GQLProductFormLegacyFragment>(productFormFragment, data.product),
               price: String(data.product.price),
               image: rootBlocks.image.input2State(data.product.image),
           }
@@ -83,7 +82,7 @@ function ProductForm({ id }: FormProps): React.ReactElement {
                 variables: { id },
                 fetchPolicy: "no-cache",
             });
-            return resolveHasSaveConflict(data?.product.updatedAt, hasConflictData.product.updatedAt);
+            return resolveHasSaveConflict(data?.product?.updatedAt, hasConflictData?.product?.updatedAt);
         },
         formApiRef,
         loadLatestVersion: async () => {
@@ -105,12 +104,12 @@ function ProductForm({ id }: FormProps): React.ReactElement {
             if (!id) throw new Error();
             await client.mutate<GQLProductFormUpdateProductMutation, GQLProductFormUpdateProductMutationVariables>({
                 mutation: updateProductMutation,
-                variables: { id, data: output, lastUpdatedAt: data?.product.updatedAt },
+                variables: { id, input: output, lastUpdatedAt: data?.product?.updatedAt },
             });
         } else {
             const { data: mutationReponse } = await client.mutate<GQLProductFormCreateProductMutation, GQLProductFormCreateProductMutationVariables>({
                 mutation: createProductMutation,
-                variables: { data: output },
+                variables: { input: output },
             });
             if (mutationReponse) {
                 createMutationResponseRef.current = mutationReponse;
@@ -147,13 +146,13 @@ function ProductForm({ id }: FormProps): React.ReactElement {
                             </IconButton>
                         </ToolbarItem>
                         <ToolbarTitleItem>
-                            {values.name ? values.name : <FormattedMessage id="comet.products.productDetail" defaultMessage="Product Detail" />}
+                            {values.title ? values.title : <FormattedMessage id="comet.products.productDetail" defaultMessage="Product Detail" />}
                         </ToolbarTitleItem>
                         <ToolbarFillSpace />
                         <ToolbarActions>
                             <FinalFormSaveSplitButton
                                 onNavigateToEditPage={() => {
-                                    const id = createMutationResponseRef.current?.addProduct.id;
+                                    const id = createMutationResponseRef.current?.createProduct.id;
                                     if (mode == "add" && id) {
                                         stackSwitchApi.activatePage(`edit`, id);
                                     }
@@ -165,9 +164,16 @@ function ProductForm({ id }: FormProps): React.ReactElement {
                         <Field
                             required
                             fullWidth
-                            name="name"
+                            name="title"
                             component={FinalFormInput}
-                            label={<FormattedMessage id="demo.product.name" defaultMessage="Name" />}
+                            label={<FormattedMessage id="demo.product.title" defaultMessage="Titel" />}
+                        />
+                        <Field
+                            required
+                            fullWidth
+                            name="slug"
+                            component={FinalFormInput}
+                            label={<FormattedMessage id="demo.product.title" defaultMessage="Slug" />}
                         />
                         <Field
                             required

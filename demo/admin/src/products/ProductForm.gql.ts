@@ -1,8 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const productFormFragment = gql`
-    fragment ProductForm on Product {
-        name
+    fragment ProductFormLegacy on Product {
+        title
+        slug
         description
         price
         image
@@ -10,7 +11,7 @@ export const productFormFragment = gql`
 `;
 
 export const productQuery = gql`
-    query Product($id: ID!) {
+    query ProductLegacy($id: ID!) {
         product(id: $id) {
             id
             updatedAt
@@ -29,8 +30,8 @@ export const productCheckForChangesQuery = gql`
 `;
 
 export const createProductMutation = gql`
-    mutation ProductFormCreateProduct($data: ProductInput!) {
-        addProduct(data: $data) {
+    mutation ProductFormCreateProduct($input: ProductInput!) {
+        createProduct(input: $input) {
             id
             updatedAt
             ...ProductForm
@@ -40,8 +41,8 @@ export const createProductMutation = gql`
 `;
 
 export const updateProductMutation = gql`
-    mutation ProductFormUpdateProduct($id: ID!, $data: ProductInput!, $lastUpdatedAt: DateTime) {
-        updateProduct(id: $id, data: $data, lastUpdatedAt: $lastUpdatedAt) {
+    mutation ProductFormUpdateProduct($id: ID!, $input: ProductInput!, $lastUpdatedAt: DateTime) {
+        updateProduct(id: $id, input: $input, lastUpdatedAt: $lastUpdatedAt) {
             id
             updatedAt
             ...ProductForm

@@ -8,7 +8,7 @@ generates:
         plugins:
             - introspection
         config:
-            minify: true
+            minify: false
     ./src/fragmentTypes.json:
         plugins:
             - fragment-matcher

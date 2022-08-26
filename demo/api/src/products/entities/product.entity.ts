@@ -22,7 +22,9 @@ export class Product extends BaseEntity<Product, "id"> implements DocumentInterf
     @Property({
         columnType: "text",
     })
-    @Field()
+    @Field({
+        description: "Titel",
+    })
     @CrudQuery()
     @CrudFilter()
     title: string;

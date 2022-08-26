@@ -46,7 +46,7 @@ import { NewsLinkBlock } from "./news/blocks/NewsLinkBlock";
 import News from "./news/News";
 import MainMenu from "./pages/mainMenu/MainMenu";
 import { Page } from "./pages/Page";
-import ProductsPage from "./products/ProductsPage";
+import { ProductsPage } from "./products/generated/ProductsPage";
 import { urlParamToCategory } from "./utils/pageTreeNodeCategoryMapping";
 
 const GlobalStyle = () => (

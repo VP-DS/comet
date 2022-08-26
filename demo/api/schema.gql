@@ -227,6 +227,8 @@ type PaginatedNews {
 type Product implements DocumentInterface {
   id: ID!
   updatedAt: DateTime!
+
+  """Titel"""
   title: String!
   description: String!
   slug: String!
