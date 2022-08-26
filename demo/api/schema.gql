@@ -228,8 +228,10 @@ type Product implements DocumentInterface {
   id: ID!
   updatedAt: DateTime!
   title: String!
+  description: String!
   slug: String!
   price: Float
+  image: JSONObject
   createdAt: DateTime!
 }
 
@@ -328,6 +330,8 @@ input FolderFilterInput {
 
 input ProductFilter {
   title: StringFilter
+  description: StringFilter
+  slug: StringFilter
   price: NumberFilter
   and: [ProductFilter!]
   or: [ProductFilter!]
@@ -492,6 +496,8 @@ input PredefinedPageInput {
 
 input ProductInput {
   title: String!
+  description: String!
   slug: String!
   price: Float!
+  image: JSONObject!
 }

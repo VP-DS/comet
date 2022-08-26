@@ -30,7 +30,7 @@
         "test": "lerna run test --concurrency=1 --stream",
         "test:lib": "lerna run test --concurrency=1 --stream --no-private",
         "build:storybook": "yarn build && yarn workspace comet-admin-stories build-storybook",
-        "intl:extract": "formatjs extract './packages/admin/**/*.ts*' --out-file 'lang/en.json' --ignore './**.d.ts' --ignore './packages/admin/admin-stories/**/*' --format simple",
+        "intl:extract": "formatjs extract './packages/admin/**/*.ts*' --out-file 'lang/en.json' --ignore './**.d.ts' --ignore './packages/admin/admin-stories/**/*' --format simple --throws",
         "postinstall": "husky install"
     },
     "devDependencies": {
@@ -63,12 +63,12 @@
         "jss": "^9.8.7",
         "lerna": "^4.0.0",
         "lint-staged": "^12.3.7",
-        "nestjs-console": "^7.0.0",
+        "nestjs-console": "^8.0.0",
         "next": "^11.0.0",
         "oidc-provider": "^7.11.3",
         "pg": "^8.0.0",
         "pg-error-constants": "^1.0.0",
-        "pm2": "^4.5.6",
+        "pm2": "^5.2.0",
         "prettier": "^2.0.0",
         "react": "^17.0",
         "react-dom": "^17.0",

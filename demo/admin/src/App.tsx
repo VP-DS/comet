@@ -46,6 +46,7 @@ import { NewsLinkBlock } from "./news/blocks/NewsLinkBlock";
 import News from "./news/News";
 import MainMenu from "./pages/mainMenu/MainMenu";
 import { Page } from "./pages/Page";
+import ProductsPage from "./products/ProductsPage";
 import { urlParamToCategory } from "./utils/pageTreeNodeCategoryMapping";
 
 const GlobalStyle = () => (
@@ -79,11 +80,11 @@ const apolloClient = createApolloClient({ authorizationConfig, refreshHandler })
 const categories: AllCategories = [
     {
         category: "MainNavigation",
-        label: <FormattedMessage id="comet.menu.pageTree.mainNavigation" defaultMessage="Main navigation" />,
+        label: <FormattedMessage id="cometDemo.menu.pageTree.mainNavigation" defaultMessage="Main navigation" />,
     },
     {
         category: "TopMenu",
-        label: <FormattedMessage id="comet.menu.pageTree.topMenu" defaultMessage="Top menu" />,
+        label: <FormattedMessage id="cometDemo.menu.pageTree.topMenu" defaultMessage="Top menu" />,
     },
 ];
 
@@ -202,6 +203,10 @@ class App extends React.Component {
                                                                                             <RouteWithErrorBoundary
                                                                                                 path={`${match.path}/component-demo`}
                                                                                                 component={ComponentDemo}
+                                                                                            />
+                                                                                            <RouteWithErrorBoundary
+                                                                                                path={`${match.path}/products`}
+                                                                                                component={ProductsPage}
                                                                                             />
 
                                                                                             <Redirect

@@ -9,9 +9,10 @@ import { useStackApi } from "./stack/Api";
 
 export interface FormSaveButtonProps {
     localStorageKey?: string;
+    onNavigateToEditPage?: () => void;
 }
 
-export const FinalFormSaveSplitButton = ({ localStorageKey }: PropsWithChildren<FormSaveButtonProps>) => {
+export const FinalFormSaveSplitButton = ({ localStorageKey = "SaveSplitButton", onNavigateToEditPage }: PropsWithChildren<FormSaveButtonProps>) => {
     const stackApi = useStackApi();
     const form = useForm();
     const { pristine, hasValidationErrors, submitting, hasSubmitErrors } = useFormState();
@@ -23,8 +24,14 @@ export const FinalFormSaveSplitButton = ({ localStorageKey }: PropsWithChildren<
                 variant="contained"
                 saving={submitting}
                 hasErrors={hasSubmitErrors}
-                onClick={() => {
-                    form.submit();
+                onClick={async () => {
+                    const submitReturn = await form.submit();
+                    const successful = submitReturn === undefined || Object.keys(submitReturn).length == 0;
+                    if (successful && onNavigateToEditPage) {
+                        setTimeout(() => {
+                            onNavigateToEditPage();
+                        });
+                    }
                 }}
             >
                 <FormattedMessage id="comet.generic.save" defaultMessage="Save" />
@@ -35,9 +42,9 @@ export const FinalFormSaveSplitButton = ({ localStorageKey }: PropsWithChildren<
                 saving={submitting}
                 hasErrors={hasSubmitErrors}
                 onClick={async () => {
-                    const submitResult = await form.submit();
-                    const error = submitResult !== undefined;
-                    if (!error) {
+                    const submitReturn = await form.submit();
+                    const successful = submitReturn === undefined || Object.keys(submitReturn).length == 0;
+                    if (successful) {
                         stackApi?.goBack();
                     }
                 }}
