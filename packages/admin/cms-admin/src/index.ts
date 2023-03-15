@@ -40,6 +40,7 @@ export type { ContentScopeConfigProps } from "./contentScope/useContentScopeConf
 export { useContentScopeConfig } from "./contentScope/useContentScopeConfig";
 export { CronJobsPage } from "./cronJobs/CronJobsPage";
 export { DamImageBlock } from "./dam/blocks/DamImageBlock";
+export { DamConfig, DamDependencyRenderInfo, GetRenderInfo } from "./dam/config/DamConfigContext";
 export { DamConfigProvider } from "./dam/config/DamConfigProvider";
 export { damDefaultAcceptedMimeTypes } from "./dam/config/damDefaultAcceptedMimeTypes";
 export { useDamAcceptedMimeTypes } from "./dam/config/useDamAcceptedMimeTypes";
