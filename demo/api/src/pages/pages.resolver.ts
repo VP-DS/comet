@@ -31,6 +31,11 @@ export class PagesResolver {
         private readonly dependenciesService: DependenciesService,
     ) {}
 
+    @Query(() => Page)
+    async page(@Args("id", { type: () => ID }) id: string): Promise<Page> {
+        return this.repository.findOneOrFail({ id });
+    }
+
     // TODO add scope argument (who uses this anyway? probably dashboard)
     @Query(() => PaginatedPages)
     async pages(@Args() { offset, limit, sortColumnName, sortDirection }: PagesArgs): Promise<PaginatedPages> {
