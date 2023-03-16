@@ -74,8 +74,8 @@ export const PredefinedPage: DocumentInterface<Pick<GQLPredefinedPage, "type">, 
         }
     },
     anchors: () => [],
-    resolveDependencyRoute: () => {
-        // TODO
-        return "";
-    },
+    // resolveDependencyRoute: () => {
+    //     // TODO
+    //     return "";
+    // },
 };

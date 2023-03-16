@@ -56,7 +56,7 @@ export const Link: DocumentInterface<Pick<GQLLink, "content">, GQLLinkInput> = {
     },
     menuIcon: LinkIcon,
     anchors: () => [],
-    resolveDependencyRoute: (input, { rootColumn, jsonPath }) => {
-        return LinkBlock.resolveDependencyRoute(LinkBlock.input2State(input["content"]), jsonPath.substring("root.".length));
-    },
+    // resolveDependencyRoute: (input, { rootColumn, jsonPath }) => {
+    //     return LinkBlock.resolveDependencyRoute(LinkBlock.input2State(input["content"]), jsonPath.substring("root.".length));
+    // },
 };

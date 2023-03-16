@@ -1,5 +1,6 @@
 import { TypedDocumentNode } from "@apollo/client";
 import { SvgIconProps } from "@mui/material";
+import * as React from "react";
 
 import { GQLDocumentInterface, Maybe } from "../graphql.generated";
 import { PageTreePage } from "../pages/pageTree/usePageTree";
@@ -46,5 +47,20 @@ export interface DocumentInterface<
     hideInMenuIcon?: (props: SvgIconProps<"svg">) => JSX.Element | null;
     InfoTag?: React.ComponentType<{ page: PageTreePage }>;
     anchors: (input: DocumentInput) => string[];
-    resolveDependencyRoute: (input: DocumentInput, { rootColumn, jsonPath }: { rootColumn: string; jsonPath: string }) => string;
+}
+
+export interface DependencyInterface<
+    DocumentInput extends Record<string, unknown> = Record<string, unknown>,
+    GQLQuery = { [key: string]: never },
+    GQLQueryVariables = { [key: string]: never },
+> {
+    displayName: React.ReactNode;
+    dependencyQuery: TypedDocumentNode<GQLQuery, GQLQueryVariables>;
+    getName: (data: unknown) => React.ReactNode;
+    getSecondaryInformation?: (data: unknown) => React.ReactNode;
+    getUrl: (
+        input: DocumentInput,
+        data: unknown,
+        { rootColumn, jsonPath, contentScopeUrl }: { rootColumn: string; jsonPath: string; contentScopeUrl: string },
+    ) => string;
 }
