@@ -4,7 +4,6 @@ import { Page } from "@src/pages/Page";
 
 export const getPageDependencyInfo: GetRenderInfo = async (id: string, { apolloClient, contentScopeUrl, data: dependencyData }) => {
     const { data } = await apolloClient.query<GQLPageDependencyQuery, GQLPageDependencyQueryVariables>({
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         query: Page.dependencyQuery,
         variables: {
             id,
