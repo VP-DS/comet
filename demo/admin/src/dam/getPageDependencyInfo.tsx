@@ -15,7 +15,7 @@ export const getPageDependencyInfo: GetRenderInfo = async (id: string, { apolloC
         type: Page.displayName,
         name: Page.getName(data),
         secondaryInfo: Page.getSecondaryInformation?.(data),
-        url: Page.getUrl(data.page, data.page.pageTreeNode, {
+        url: Page.getUrl(data, {
             rootColumn: dependencyData.rootColumnName,
             jsonPath: dependencyData.jsonPath,
             contentScopeUrl: contentScope.match.url,

@@ -50,17 +50,13 @@ export interface DocumentInterface<
 }
 
 export interface DependencyInterface<
-    DocumentInput extends Record<string, unknown> = Record<string, unknown>,
-    GQLQuery = { [key: string]: never },
-    GQLQueryVariables = { [key: string]: never },
+    GQLQuery = { [key: string]: unknown },
+    GQLQueryVariables = { [key: string]: unknown },
+    Data = GQLQuery | { [key: string]: unknown },
 > {
     displayName: React.ReactNode;
     dependencyQuery: TypedDocumentNode<GQLQuery, GQLQueryVariables>;
-    getName: (data: unknown) => React.ReactNode;
-    getSecondaryInformation?: (data: unknown) => React.ReactNode;
-    getUrl: (
-        input: DocumentInput,
-        data: unknown,
-        { rootColumn, jsonPath, contentScopeUrl }: { rootColumn: string; jsonPath: string; contentScopeUrl: string },
-    ) => string;
+    getName: (data: Data) => React.ReactNode;
+    getSecondaryInformation?: (data: Data) => React.ReactNode;
+    getUrl: (data: Data, { rootColumn, jsonPath, contentScopeUrl }: { rootColumn: string; jsonPath: string; contentScopeUrl: string }) => string;
 }
