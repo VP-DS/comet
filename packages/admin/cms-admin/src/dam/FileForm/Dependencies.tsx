@@ -7,29 +7,28 @@ import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 
 import { useContentScope } from "../../contentScope/Provider";
+import { DependencyRenderInfo, GetRenderInfo, useDependencyConfig } from "../../dependencies/DependencyContext";
 import { GQLDamFileDependentsQuery, GQLDamFileDependentsQueryVariables, GQLDamFileDetailDependencyFragment } from "../../graphql.generated";
-import { DamDependencyRenderInfo, GetRenderInfo } from "../config/DamConfigContext";
-import { useDamConfig } from "../config/useDamConfig";
 
 interface DependencyProps {
     id: string;
     dependent: GQLDamFileDetailDependencyFragment;
     graphqlObjectType: string;
     getRenderInfo: GetRenderInfo;
-    renderCustomContent?: (renderInfo: DamDependencyRenderInfo) => React.ReactNode;
+    renderCustomContent?: (renderInfo: DependencyRenderInfo) => React.ReactNode;
 }
 
 const Dependency = ({ id, dependent, graphqlObjectType, getRenderInfo, renderCustomContent }: DependencyProps) => {
     const apolloClient = useApolloClient();
     const contentScope = useContentScope();
 
-    const [data, setData] = React.useState<DamDependencyRenderInfo>();
+    const [data, setData] = React.useState<DependencyRenderInfo>();
     const [error, setError] = React.useState<boolean>(false);
 
     React.useEffect(() => {
         const loadData = async () => {
             try {
-                const renderInfo = await getRenderInfo(id, { apolloClient, contentScope, data: dependent });
+                const renderInfo = await getRenderInfo(id, { apolloClient, contentScopeUrl: contentScope.match.url, data: dependent });
                 setData(renderInfo);
             } catch {
                 setError(true);
@@ -131,7 +130,7 @@ interface DependenciesProps {
 
 export const Dependencies = ({ fileId }: DependenciesProps) => {
     const classes = useStyles();
-    const damConfig = useDamConfig();
+    const dependencyConfig = useDependencyConfig();
 
     const { data, loading, refetch } = useQuery<GQLDamFileDependentsQuery, GQLDamFileDependentsQueryVariables>(damFileDependentsQuery, {
         variables: {
@@ -147,7 +146,7 @@ export const Dependencies = ({ fileId }: DependenciesProps) => {
                 </Button>
             </ListItem>
             {data?.damFile.dependents.map((dependent) => {
-                if (!damConfig.dependencyRenderInfoProvider?.[dependent.rootGraphqlObjectType]) {
+                if (!dependencyConfig.dependencyRenderInfoProvider?.[dependent.rootGraphqlObjectType]) {
                     return (
                         <FormattedMessage
                             key={`${dependent.rootId}|${dependent.jsonPath}`}
@@ -166,8 +165,7 @@ export const Dependencies = ({ fileId }: DependenciesProps) => {
                             id={dependent.rootId}
                             dependent={dependent}
                             graphqlObjectType={dependent.rootGraphqlObjectType}
-                            getRenderInfo={damConfig.dependencyRenderInfoProvider[dependent.rootGraphqlObjectType].getRenderInfo}
-                            renderCustomContent={damConfig.dependencyRenderInfoProvider[dependent.rootGraphqlObjectType].renderCustomContent}
+                            getRenderInfo={dependencyConfig.dependencyRenderInfoProvider[dependent.rootGraphqlObjectType]}
                         />
                     </ListItem>
                 );

@@ -40,12 +40,13 @@ export type { ContentScopeConfigProps } from "./contentScope/useContentScopeConf
 export { useContentScopeConfig } from "./contentScope/useContentScopeConfig";
 export { CronJobsPage } from "./cronJobs/CronJobsPage";
 export { DamImageBlock } from "./dam/blocks/DamImageBlock";
-export { DamConfig, DamDependencyRenderInfo, GetRenderInfo } from "./dam/config/DamConfigContext";
+export { DamConfig } from "./dam/config/DamConfigContext";
 export { DamConfigProvider } from "./dam/config/DamConfigProvider";
 export { damDefaultAcceptedMimeTypes } from "./dam/config/damDefaultAcceptedMimeTypes";
 export { useDamAcceptedMimeTypes } from "./dam/config/useDamAcceptedMimeTypes";
 export { useDamConfig } from "./dam/config/useDamConfig";
 export { DamPage } from "./dam/DamPage";
+export { DependencyConfig, DependencyProvider, GetRenderInfo, useDependencyConfig } from "./dependencies/DependencyContext";
 export { rewriteInternalLinks } from "./documents/rewriteInternalLinks";
 export type { DocumentInterface, DocumentType, IdsMap } from "./documents/types";
 export { ChooseFileDialog } from "./form/file/chooseFile/ChooseFileDialog";
