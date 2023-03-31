@@ -319,6 +319,15 @@ type PaginatedNews {
   totalCount: Int!
 }
 
+type ProductCategory implements DocumentInterface {
+  id: ID!
+  updatedAt: DateTime!
+  title: String!
+  slug: String!
+  createdAt: DateTime!
+  products: [Product!]!
+}
+
 type Product implements DocumentInterface {
   id: ID!
   updatedAt: DateTime!
@@ -329,6 +338,7 @@ type Product implements DocumentInterface {
   price: Float
   inStock: Boolean!
   createdAt: DateTime!
+  category: ProductCategory
 }
 
 enum ProductType {
@@ -339,6 +349,11 @@ enum ProductType {
 
 type PaginatedProducts {
   nodes: [Product!]!
+  totalCount: Int!
+}
+
+type PaginatedProductCategorys {
+  nodes: [ProductCategory!]!
   totalCount: Int!
 }
 
@@ -428,6 +443,9 @@ type Query {
   product(id: ID!): Product!
   productBySlug(slug: String!): Product
   products(offset: Int = 0, limit: Int = 20, search: String, filter: ProductFilter, sort: [ProductSort!]): PaginatedProducts!
+  productCategory(id: ID!): ProductCategory!
+  productCategoryBySlug(slug: String!): ProductCategory
+  productCategorys(offset: Int = 0, limit: Int = 20, search: String, filter: ProductCategoryFilter, sort: [ProductCategorySort!]): PaginatedProductCategorys!
 }
 
 enum SortDirection {
@@ -579,6 +597,27 @@ enum ProductSortField {
   updatedAt
 }
 
+input ProductCategoryFilter {
+  title: StringFilter
+  slug: StringFilter
+  createdAt: DateFilter
+  updatedAt: DateFilter
+  and: [ProductCategoryFilter!]
+  or: [ProductCategoryFilter!]
+}
+
+input ProductCategorySort {
+  field: ProductCategorySortField!
+  direction: SortDirection = ASC
+}
+
+enum ProductCategorySortField {
+  title
+  slug
+  createdAt
+  updatedAt
+}
+
 type Mutation {
   currentUserSignOut: String!
   createBuilds(input: CreateBuildsInput!): Boolean!
@@ -620,6 +659,9 @@ type Mutation {
   createProduct(input: ProductInput!): Product!
   updateProduct(id: ID!, input: ProductInput!, lastUpdatedAt: DateTime): Product!
   deleteProduct(id: ID!): Boolean!
+  createProductCategory(input: ProductCategoryInput!): ProductCategory!
+  updateProductCategory(id: ID!, input: ProductCategoryInput!, lastUpdatedAt: DateTime): ProductCategory!
+  deleteProductCategory(id: ID!): Boolean!
 }
 
 input CreateBuildsInput {
@@ -781,4 +823,9 @@ input ProductInput {
   type: ProductType!
   price: Float
   inStock: Boolean!
+}
+
+input ProductCategoryInput {
+  title: String!
+  slug: String!
 }

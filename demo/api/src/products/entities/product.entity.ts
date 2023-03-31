@@ -1,5 +1,5 @@
 import { CrudField, CrudGenerator, DocumentInterface } from "@comet/cms-api";
-import { BaseEntity, Entity, Enum, OptionalProps, PrimaryKey, Property, types } from "@mikro-orm/core";
+import { BaseEntity, Entity, Enum, ManyToOne, OptionalProps, PrimaryKey, Property, Ref, types } from "@mikro-orm/core";
 import { Field, ID, ObjectType, registerEnumType } from "@nestjs/graphql";
 import { v4 as uuid } from "uuid";
 
@@ -11,6 +11,8 @@ export enum ProductType {
 registerEnumType(ProductType, {
     name: "ProductType",
 });
+
+import { ProductCategory } from "./product-cetegory.entity";
 
 @ObjectType({
     implements: () => [DocumentInterface],
@@ -54,6 +56,15 @@ export class Product extends BaseEntity<Product, "id"> implements DocumentInterf
     @Property({ type: types.boolean })
     @Field()
     inStock: boolean = true;
+
+    @ManyToOne(() => ProductCategory, { nullable: true, ref: true })
+    @CrudField({
+        search: true,
+        filter: true,
+        sort: true,
+        input: true,
+    })
+    category?: Ref<ProductCategory>;
 
     @Property()
     @Field()
