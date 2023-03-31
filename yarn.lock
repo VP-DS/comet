@@ -4929,7 +4929,7 @@ __metadata:
     "@comet/blocks-api": ^4.0.0
     "@comet/eslint-config": ^4.0.0
     "@hapi/accept": ^5.0.2
-    "@mikro-orm/sqlite": ^5.0.0
+    "@mikro-orm/sqlite": ^5.6.15
     "@nestjs/jwt": ^9.0.0
     "@nestjs/passport": ^9.0.0
     "@nestjs/platform-express": ^9.0.0
@@ -6989,6 +6989,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jercle/yargonaut@npm:1.1.5":
+  version: 1.1.5
+  resolution: "@jercle/yargonaut@npm:1.1.5"
+  dependencies:
+    chalk: ^4.1.2
+    figlet: ^1.5.2
+    parent-require: ^1.0.0
+  checksum: 3941cda4aa12043a3beb51499fe0a7741500e884cf1039de779eed5964abc00dd379ef47e9a8f75959440d6d41fe55dff18c247a69d48e422bf091e801cc3afc
+  languageName: node
+  linkType: hard
+
 "@jest/console@npm:^27.5.1":
   version: 27.5.1
   resolution: "@jest/console@npm:27.5.1"
@@ -8473,15 +8484,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mikro-orm/cli@npm:^5.0.4, @mikro-orm/cli@npm:^5.2.1":
-  version: 5.4.2
-  resolution: "@mikro-orm/cli@npm:5.4.2"
+"@mikro-orm/cli@npm:^5.6.15":
+  version: 5.6.15
+  resolution: "@mikro-orm/cli@npm:5.6.15"
   dependencies:
-    "@mikro-orm/core": ~5.4.2
-    "@mikro-orm/knex": ~5.4.2
-    fs-extra: 10.1.0
-    tsconfig-paths: 4.1.0
-    yargonaut: 1.1.4
+    "@jercle/yargonaut": 1.1.5
+    "@mikro-orm/core": ~5.6.15
+    "@mikro-orm/knex": ~5.6.15
+    fs-extra: 11.1.0
+    tsconfig-paths: 4.1.2
     yargs: 15.4.1
   peerDependencies:
     "@mikro-orm/better-sqlite": ^5.0.0
@@ -8518,20 +8529,20 @@ __metadata:
   bin:
     mikro-orm: cli.js
     mikro-orm-esm: esm.js
-  checksum: f75b710f0b0edee98dd91a97d5e9923355170d3cd55f180ec01c766f219290c30827b615f6a5220b69bb22d896e169e670605095538dcf427785e9efca831aef
+  checksum: 40c37731c1b2df4c861b412ce83376e9bbb35a71a4cd43e9410c27a9e073a11be3f41ec918e0995279cd13716e37e22d8de310a14344d84c7a38df75d6cb5317
   languageName: node
   linkType: hard
 
-"@mikro-orm/core@npm:^5.0.4, @mikro-orm/core@npm:^5.2.1, @mikro-orm/core@npm:~5.4.2":
-  version: 5.4.2
-  resolution: "@mikro-orm/core@npm:5.4.2"
+"@mikro-orm/core@npm:^5.6.15, @mikro-orm/core@npm:~5.6.15":
+  version: 5.6.15
+  resolution: "@mikro-orm/core@npm:5.6.15"
   dependencies:
     acorn-loose: 8.3.0
     acorn-walk: 8.2.0
-    dotenv: 16.0.2
-    fs-extra: 10.1.0
-    globby: 11.0.4
-    mikro-orm: ~5.4.2
+    dotenv: 16.0.3
+    fs-extra: 11.1.0
+    globby: 11.1.0
+    mikro-orm: ~5.6.15
     reflect-metadata: 0.1.13
   peerDependencies:
     "@mikro-orm/better-sqlite": ^5.0.0
@@ -8565,22 +8576,22 @@ __metadata:
       optional: true
     "@mikro-orm/sqlite":
       optional: true
-  checksum: 7ddf7513b6928bf11af1645120aa804116781abe49006f112c5c332a9c5fbd3d3b1b79bd74b9f86dc8a31845c5a2d65f3e9838e529ecb2ebc0efe5df67724764
+  checksum: 39523ffd909440bec2e625bd01a4bc9995e87127b683276a75f798c6e50631b30f942b52577b77377e53f9125260abac48402f80a0b0f515b22490500842a6d4
   languageName: node
   linkType: hard
 
-"@mikro-orm/knex@npm:~5.4.2":
-  version: 5.4.2
-  resolution: "@mikro-orm/knex@npm:5.4.2"
+"@mikro-orm/knex@npm:~5.6.15":
+  version: 5.6.15
+  resolution: "@mikro-orm/knex@npm:5.6.15"
   dependencies:
-    fs-extra: 10.1.0
-    knex: 2.3.0
+    fs-extra: 11.1.0
+    knex: 2.4.2
     sqlstring: 2.3.3
   peerDependencies:
     "@mikro-orm/core": ^5.0.0
     "@mikro-orm/entity-generator": ^5.0.0
     "@mikro-orm/migrations": ^5.0.0
-    better-sqlite3: ^7.0.0
+    better-sqlite3: ^8.0.0
     mssql: ^7.0.0
     mysql: ^2.18.1
     mysql2: ^2.1.0
@@ -8603,75 +8614,41 @@ __metadata:
       optional: true
     sqlite3:
       optional: true
-  checksum: d574c3322aac480022dd110ae8089a40fd73333d6e17dee2b31601a87c6a0795a139b94697add7288196872f70909ca3fef4b01db29258593d3bf0c73dc0c3ce
+  checksum: d670501873ee1d689bd4583427786fbac8e3b6f88f4667f80fd330ef57741026e911ca595ee2a1ee37845cb657b26205a8b7725996929900c2753be4bd99754c
   languageName: node
   linkType: hard
 
-"@mikro-orm/migrations@npm:^5.0.4, @mikro-orm/migrations@npm:^5.2.1":
-  version: 5.4.2
-  resolution: "@mikro-orm/migrations@npm:5.4.2"
+"@mikro-orm/migrations@npm:^5.6.15":
+  version: 5.6.15
+  resolution: "@mikro-orm/migrations@npm:5.6.15"
   dependencies:
-    "@mikro-orm/knex": ~5.4.2
-    fs-extra: 10.1.0
-    knex: 2.3.0
+    "@mikro-orm/knex": ~5.6.15
+    fs-extra: 11.1.0
+    knex: 2.4.2
     umzug: 3.2.1
   peerDependencies:
     "@mikro-orm/core": ^5.0.0
-  checksum: 4f6207e73a2989488ae1762ee336f93a4a904ad80eaa45d8cfa23c5caea12bb6821d1a0ab2fe049dd2a2fced8ec3a31d85f0aea19eaab98783a94898101d2f69
+  checksum: e01453412549ea0b84172d2a2f199854b12240d9b86fb68791cbbd02ae1eb3e5acfd2edbe834bb5de836795cc64e98b32105f371d6cc03086f937fc2eae3e637
   languageName: node
   linkType: hard
 
-"@mikro-orm/nestjs@npm:^5.1.0":
-  version: 5.1.2
-  resolution: "@mikro-orm/nestjs@npm:5.1.2"
+"@mikro-orm/nestjs@npm:^5.1.7":
+  version: 5.1.8
+  resolution: "@mikro-orm/nestjs@npm:5.1.8"
   peerDependencies:
-    "@mikro-orm/better-sqlite": ^5.0.0
-    "@mikro-orm/core": ^5.0.0
-    "@mikro-orm/entity-generator": ^5.0.0
-    "@mikro-orm/knex": ^5.0.0
-    "@mikro-orm/mariadb": ^5.0.0
-    "@mikro-orm/migrations": ^5.0.0
-    "@mikro-orm/migrations-mongodb": ^5.0.0
-    "@mikro-orm/mongodb": ^5.0.0
-    "@mikro-orm/mysql": ^5.0.0
-    "@mikro-orm/postgresql": ^5.0.0
-    "@mikro-orm/seeder": ^5.0.0
-    "@mikro-orm/sqlite": ^5.0.0
+    "@mikro-orm/core": ^5.0.0 || ^6.0.0-dev.0
     "@nestjs/common": ^8.0.0 || ^9.0.0
     "@nestjs/core": ^8.0.0 || ^9.0.0
-  peerDependenciesMeta:
-    "@mikro-orm/better-sqlite":
-      optional: true
-    "@mikro-orm/entity-generator":
-      optional: true
-    "@mikro-orm/knex":
-      optional: true
-    "@mikro-orm/mariadb":
-      optional: true
-    "@mikro-orm/migrations":
-      optional: true
-    "@mikro-orm/migrations-mongodb":
-      optional: true
-    "@mikro-orm/mongodb":
-      optional: true
-    "@mikro-orm/mysql":
-      optional: true
-    "@mikro-orm/postgresql":
-      optional: true
-    "@mikro-orm/seeder":
-      optional: true
-    "@mikro-orm/sqlite":
-      optional: true
-  checksum: 99f6ce0b7152c773b533cedaeb7a52bf5714ba2c32f203bf4308bc951c9c2afbf6c466ed2370a43cb823ecc5a007976233e148b564b3b29f385eb39a32ab6c29
+  checksum: 183772d17db48425412613441b363a362debcc1e2a00f2e3b12b530ecaf1882a8221a2ad71be9e1484711e61671088ee89a07506bea9916f3728455e6a9c50e3
   languageName: node
   linkType: hard
 
-"@mikro-orm/postgresql@npm:^5.0.4, @mikro-orm/postgresql@npm:^5.2.1":
-  version: 5.4.2
-  resolution: "@mikro-orm/postgresql@npm:5.4.2"
+"@mikro-orm/postgresql@npm:^5.6.15":
+  version: 5.6.15
+  resolution: "@mikro-orm/postgresql@npm:5.6.15"
   dependencies:
-    "@mikro-orm/knex": ~5.4.2
-    pg: 8.8.0
+    "@mikro-orm/knex": ~5.6.15
+    pg: 8.10.0
   peerDependencies:
     "@mikro-orm/core": ^5.0.0
     "@mikro-orm/entity-generator": ^5.0.0
@@ -8684,17 +8661,17 @@ __metadata:
       optional: true
     "@mikro-orm/seeder":
       optional: true
-  checksum: aad9895ebb7d660e35fd88ffc1ad65cb295af4962038c2f8fb9a2a95f8e2708d332ca3292f662c206ae63ba8ea4ba288a916cfeec22845c23d15c39fefbc8891
+  checksum: b04540dfefaafc399038138b0022478912c99f235a29fa75aa6596e65e80543ec4fae4c0ef1f9ea7674a4bb40ddb3a39f75e929b990d466c8c2e2f27c2ee4f84
   languageName: node
   linkType: hard
 
-"@mikro-orm/sqlite@npm:^5.0.0":
-  version: 5.4.2
-  resolution: "@mikro-orm/sqlite@npm:5.4.2"
+"@mikro-orm/sqlite@npm:^5.6.15":
+  version: 5.6.15
+  resolution: "@mikro-orm/sqlite@npm:5.6.15"
   dependencies:
-    "@mikro-orm/knex": ~5.4.2
-    fs-extra: 10.1.0
-    sqlite3: 5.0.11
+    "@mikro-orm/knex": ~5.6.15
+    fs-extra: 11.1.0
+    sqlite3: 5.1.6
     sqlstring-sqlite: 0.1.1
   peerDependencies:
     "@mikro-orm/core": ^5.0.0
@@ -8708,7 +8685,7 @@ __metadata:
       optional: true
     "@mikro-orm/seeder":
       optional: true
-  checksum: 37b54055411c03e2c9961c5c10a4849a73f865950138610a19e75d420407622b0fcf0ddaefcb0c87b1b6e30764c6ac13b49ed74a3603fc3f12c85083ecf167ee
+  checksum: 67df5075ab8c8380c1faa89799aaa1fa92e956cbf64a37bf5cc777856009ebbf35050afa2f603fab0909e194b7ec7d81ad66289dcd447865bd95e42529844bea
   languageName: node
   linkType: hard
 
@@ -17108,7 +17085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^1.1.1, chalk@npm:^1.1.3":
+"chalk@npm:^1.1.3":
   version: 1.1.3
   resolution: "chalk@npm:1.1.3"
   dependencies:
@@ -17939,11 +17916,11 @@ __metadata:
     "@comet/eslint-config": ^4.0.0
     "@hapi/accept": ^5.0.0
     "@kubernetes/client-node": ^0.18.0
-    "@mikro-orm/cli": ^5.0.4
-    "@mikro-orm/core": ^5.0.4
-    "@mikro-orm/migrations": ^5.0.4
-    "@mikro-orm/nestjs": ^5.1.0
-    "@mikro-orm/postgresql": ^5.0.4
+    "@mikro-orm/cli": ^5.6.15
+    "@mikro-orm/core": ^5.6.15
+    "@mikro-orm/migrations": ^5.6.15
+    "@mikro-orm/nestjs": ^5.1.7
+    "@mikro-orm/postgresql": ^5.6.15
     "@nestjs/apollo": ^10.0.0
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
@@ -19889,14 +19866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.0.2":
-  version: 16.0.2
-  resolution: "dotenv@npm:16.0.2"
-  checksum: ca8f9ca2d67929c7771069f4c31b4e46b9932621009e658e5afd655dde2d69b77642bf36dbc9e72bc170523dfd908a9ee41c26f034c1fdc605ace3b1b4b10faf
-  languageName: node
-  linkType: hard
-
-"dotenv@npm:^16.0.3":
+"dotenv@npm:16.0.3, dotenv@npm:^16.0.3":
   version: 16.0.3
   resolution: "dotenv@npm:16.0.3"
   checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
@@ -21720,7 +21690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"figlet@npm:^1.1.1":
+"figlet@npm:^1.5.2":
   version: 1.5.2
   resolution: "figlet@npm:1.5.2"
   checksum: cc860391669b44e119871d589e09a2814aa86351726a5791e0d3e2d098e4fc37171c85fcfed13f4e9000995bd004dc6dbf848da5fe458cf1477e776b7318986f
@@ -22283,6 +22253,17 @@ __metadata:
     jsonfile: ^6.0.1
     universalify: ^2.0.0
   checksum: dc94ab37096f813cc3ca12f0f1b5ad6744dfed9ed21e953d72530d103cea193c2f81584a39e9dee1bea36de5ee66805678c0dddc048e8af1427ac19c00fffc50
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:11.1.0":
+  version: 11.1.0
+  resolution: "fs-extra@npm:11.1.0"
+  dependencies:
+    graceful-fs: ^4.2.0
+    jsonfile: ^6.0.1
+    universalify: ^2.0.0
+  checksum: 5ca476103fa1f5ff4a9b3c4f331548f8a3c1881edaae323a4415d3153b5dc11dc6a981c8d1dd93eec8367ceee27b53f8bd27eecbbf66ffcdd04927510c171e7f
   languageName: node
   linkType: hard
 
@@ -22923,21 +22904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:11.0.4":
-  version: 11.0.4
-  resolution: "globby@npm:11.0.4"
-  dependencies:
-    array-union: ^2.1.0
-    dir-glob: ^3.0.1
-    fast-glob: ^3.1.1
-    ignore: ^5.1.4
-    merge2: ^1.3.0
-    slash: ^3.0.0
-  checksum: d3e02d5e459e02ffa578b45f040381c33e3c0538ed99b958f0809230c423337999867d7b0dbf752ce93c46157d3bbf154d3fff988a93ccaeb627df8e1841775b
-  languageName: node
-  linkType: hard
-
-"globby@npm:^11.0.2, globby@npm:^11.0.3, globby@npm:^11.1.0":
+"globby@npm:11.1.0, globby@npm:^11.0.2, globby@npm:^11.0.3, globby@npm:^11.1.0":
   version: 11.1.0
   resolution: "globby@npm:11.1.0"
   dependencies:
@@ -26627,6 +26594,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json5@npm:^2.2.2":
+  version: 2.2.3
+  resolution: "json5@npm:2.2.3"
+  bin:
+    json5: lib/cli.js
+  checksum: 2a7436a93393830bce797d4626275152e37e877b265e94ca69c99e3d20c2b9dab021279146a39cdb700e71b2dd32a4cebd1514cd57cee102b1af906ce5040349
+  languageName: node
+  linkType: hard
+
 "jsonc-parser@npm:3.0.0":
   version: 3.0.0
   resolution: "jsonc-parser@npm:3.0.0"
@@ -26931,9 +26907,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knex@npm:2.3.0":
-  version: 2.3.0
-  resolution: "knex@npm:2.3.0"
+"knex@npm:2.4.2":
+  version: 2.4.2
+  resolution: "knex@npm:2.4.2"
   dependencies:
     colorette: 2.0.19
     commander: ^9.1.0
@@ -26966,7 +26942,7 @@ __metadata:
       optional: true
   bin:
     knex: bin/cli.js
-  checksum: ec00da6dd622a386507881e9d8ad44b9c5a4d9f272889b181cafb856fd26d7fdb19ef009cecdbbdedaf7c76f985a8fd14348ae47a0bb77b3dbec15f2c03c0dfe
+  checksum: cfb6436c0e3df3cd1f55d3637e4f222d1acbc7b6ec3757e52c92cbf0a7da4055d40156d707ffede57dc155af75d7f5739a49d1b31d8755bc77bc0e4e2a570748
   languageName: node
   linkType: hard
 
@@ -28350,10 +28326,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mikro-orm@npm:~5.4.2":
-  version: 5.4.2
-  resolution: "mikro-orm@npm:5.4.2"
-  checksum: 4a00cc10a4cc0152f385f1f0afcf5f14107b3e3c16c48c71feee83132c756e99d7a60ebbfe39fd6f4b162298fdc048d3f9c70bf5edb1d06074574370fa3ced45
+"mikro-orm@npm:~5.6.15":
+  version: 5.6.15
+  resolution: "mikro-orm@npm:5.6.15"
+  checksum: c38dd237c076e6b8578d959483ed2068556bc045fcbbb4db830cb7f113c50768fe36f2f0f3ae9b1b8a2689815ee7ee67a2f0d4e9c156f26f2159e3c0a5297593
   languageName: node
   linkType: hard
 
@@ -30914,12 +30890,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg-pool@npm:^3.5.2":
-  version: 3.5.2
-  resolution: "pg-pool@npm:3.5.2"
+"pg-pool@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "pg-pool@npm:3.6.0"
   peerDependencies:
     pg: ">=8.0"
-  checksum: a5d029200257671f0c17ca54b9ab6213e2060e64e5cc792b78edd50ab471a26cd364890d05d546d9296949e079e943821cf2ceb4d488f4e6a6789fb781a628bf
+  checksum: f3fe050fbfe27406369340c4c26efcbe21a388ace085a876453de0ea496a315c38b2dc739ac97d4767a359e911da2ec4810467f72601eeec8ad540e58b27987c
   languageName: node
   linkType: hard
 
@@ -30927,6 +30903,13 @@ __metadata:
   version: 1.5.0
   resolution: "pg-protocol@npm:1.5.0"
   checksum: b839d12cafe942ef9cbc5b13c174eb2356804fb4fe8ead8279f46a36be90722d19a91409955beb8a3d5301639c44854e49749de4aef02dc361fee3e2a61fb1e4
+  languageName: node
+  linkType: hard
+
+"pg-protocol@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "pg-protocol@npm:1.6.0"
+  checksum: e12662d2de2011e0c3a03f6a09f435beb1025acdc860f181f18a600a5495dc38a69d753bbde1ace279c8c442536af9c1a7c11e1d0fe3fad3aa1348b28d9d2683
   languageName: node
   linkType: hard
 
@@ -30943,15 +30926,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg@npm:8.8.0":
-  version: 8.8.0
-  resolution: "pg@npm:8.8.0"
+"pg@npm:8.10.0":
+  version: 8.10.0
+  resolution: "pg@npm:8.10.0"
   dependencies:
     buffer-writer: 2.0.0
     packet-reader: 1.0.0
     pg-connection-string: ^2.5.0
-    pg-pool: ^3.5.2
-    pg-protocol: ^1.5.0
+    pg-pool: ^3.6.0
+    pg-protocol: ^1.6.0
     pg-types: ^2.1.0
     pgpass: 1.x
   peerDependencies:
@@ -30959,7 +30942,7 @@ __metadata:
   peerDependenciesMeta:
     pg-native:
       optional: true
-  checksum: fa30a85814dd7238b582c3bc6c0b9e2b0ae38dd0a6bb485ef480e64bb5ce589de6cb873ce4d3cd10c37a3e0a1e1281ba75dc7d80b1a68bae91999cd5b70d398b
+  checksum: c6be78f2e823f2ae3c618c8e54a6622592dd71b556fb665d7eaedcbcc2fa5d210a8bcf519401e72526a65b9d797f19b772f48f29b9d9f31e98dd526fd27d61e0
   languageName: node
   linkType: hard
 
@@ -33476,11 +33459,11 @@ __metadata:
     "@azure/storage-blob": ^12.0.0
     "@comet/dev-process-manager": ^2.3.0
     "@formatjs/cli": ^4.8.3
-    "@mikro-orm/cli": ^5.2.1
-    "@mikro-orm/core": ^5.2.1
-    "@mikro-orm/migrations": ^5.2.1
-    "@mikro-orm/nestjs": ^5.1.0
-    "@mikro-orm/postgresql": ^5.2.1
+    "@mikro-orm/cli": ^5.6.15
+    "@mikro-orm/core": ^5.6.15
+    "@mikro-orm/migrations": ^5.6.15
+    "@mikro-orm/nestjs": ^5.1.7
+    "@mikro-orm/postgresql": ^5.6.15
     "@nestjs/apollo": ^10.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/core": ^9.0.0
@@ -34582,9 +34565,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sqlite3@npm:5.0.11":
-  version: 5.0.11
-  resolution: "sqlite3@npm:5.0.11"
+"sqlite3@npm:5.1.6":
+  version: 5.1.6
+  resolution: "sqlite3@npm:5.1.6"
   dependencies:
     "@mapbox/node-pre-gyp": ^1.0.0
     node-addon-api: ^4.2.0
@@ -34598,7 +34581,7 @@ __metadata:
   peerDependenciesMeta:
     node-gyp:
       optional: true
-  checksum: 9847d56af4aea1872678e66f35c4f5fed599c6aee0441eda8d1f56a5263fc8ab38e0fc9e46cbf02e7043272e39e665ec7b880886d36c16e865a8e375a6f045fc
+  checksum: ea640628843e37a63dfb4bd2c8429dbd7aab845c1a8204574dca3aac61486ab65bc0abfd99b48f1cead1f783171c6111c0cc4115335d5b95bb0b4eb44db162d5
   languageName: node
   linkType: hard
 
@@ -36405,14 +36388,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig-paths@npm:4.1.0":
-  version: 4.1.0
-  resolution: "tsconfig-paths@npm:4.1.0"
+"tsconfig-paths@npm:4.1.2":
+  version: 4.1.2
+  resolution: "tsconfig-paths@npm:4.1.2"
   dependencies:
-    json5: ^2.2.1
+    json5: ^2.2.2
     minimist: ^1.2.6
     strip-bom: ^3.0.0
-  checksum: e4b101f81b2abd95499d8145e0aa73144e857c2c359191058486cef101b7accae22a69114e5d5814a13d5ab3b0bae70dd0c85bcdb7e829bbe1bfda5c9067c9b1
+  checksum: 3d9151ecea139594e25618717de15769ab9f38f8e6d510ac16e592b23e7f7105ea13cec5694c3de7e132c98277b775e18edd1651964164ee6d75737c408494cc
   languageName: node
   linkType: hard
 
@@ -38524,17 +38507,6 @@ __metadata:
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: ce4ada136e8a78a0b08dc10b4b900936912d15de59905b2bf415b4d33c63df1d555d23acb2a41b23cf9fb5da41c256441afca3d6509de7247daa062fd2c5ea5f
-  languageName: node
-  linkType: hard
-
-"yargonaut@npm:1.1.4":
-  version: 1.1.4
-  resolution: "yargonaut@npm:1.1.4"
-  dependencies:
-    chalk: ^1.1.1
-    figlet: ^1.1.1
-    parent-require: ^1.0.0
-  checksum: d0ffc310a761782ae38022d88e13e84486080b2be2c43e8d5cbb987e40c3d2dd18274c39ce34e05d6bc312a4e768cd4c469d338ed60409adf6f4d870017c63a3
   languageName: node
   linkType: hard
 

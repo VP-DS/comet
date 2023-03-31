@@ -93,7 +93,7 @@
     "devDependencies": {
         "@aws-sdk/types": "^3.47.0",
         "@comet/eslint-config": "^4.0.0",
-        "@mikro-orm/sqlite": "^5.0.0",
+        "@mikro-orm/sqlite": "^5.6.15",
         "@types/express": "^4.0.0",
         "@types/jsonwebtoken": "^8.5.9",
         "@types/lodash.isequal": "^4.0.0",
